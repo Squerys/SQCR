@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "Math.proto";
+import "Options.proto";
+
+message SetupSettingLimits {
+    float step = 1;
+    float min = 2;
+    float max = 3;
+    string lut = 6;
+    CurveDataEx curve = 9;
+    bool is_modifiable = 4;
+    bool hide_value = 5;
+    string unit = 7;
+    int32 fractional_digits = 8;
+}
+
+message DamperSettingsLimits {
+    SetupSettingLimits slow_bump = 1;
+    SetupSettingLimits fast_bump = 2;
+    SetupSettingLimits slow_rebound = 3;
+    SetupSettingLimits fast_rebound = 4;
+}
+
+message BumpStopSettingsLimits {
+    SetupSettingLimits range = 1;
+    SetupSettingLimits rate = 2;
+}
+
+message SuspensionSettingLimits {
+    SetupSettingLimits wheel_rate = 1;
+    BumpStopSettingsLimits bump_stop_up = 2;
+    BumpStopSettingsLimits bump_stop_down = 3;
+    SetupSettingLimits helper_rate = 4;
+    SetupSettingLimits helper_range = 5;
+}
+
+message BrakeSettingLimits {
+    SetupSettingLimits front_bias = 1;
+    SetupSettingLimits torque_multiplier = 2;
+}
+
+message DifferentialSettingsLimits {
+    SetupSettingLimits power = 1;
+    SetupSettingLimits coast = 2;
+    SetupSettingLimits preload = 3;
+}
+
+message ElectronicsSettingsLimits {
+    SetupSettingLimits tc1 = 1;
+    SetupSettingLimits tc2 = 2;
+    SetupSettingLimits abs = 3;
+    SetupSettingLimits esc = 6;
+    SetupSettingLimits engine_map = 4;
+    SetupSettingLimits telemetry_laps_to_record = 5;
+}
+
+message AeroSettingsLimits {
+    repeated SetupSettingLimits rod_lengths = 1;
+    SetupSettingLimits front_target_height = 2;
+    SetupSettingLimits rear_target_height = 3;
+    SetupSettingLimits front_wing_angle = 4;
+    SetupSettingLimits rear_wing_angle = 5;
+}
+
+message MechanicalBalanceLimits {
+    repeated SetupSettingLimits arbs = 1;
+    SetupSettingLimits steer_ratio = 2;
+    BrakeSettingLimits brakes = 3;
+    DifferentialSettingsLimits differential = 4;
+}
+
+message TyreAlignmentLimits {
+    SetupSettingLimits pressure = 1;
+    SetupSettingLimits camber = 2;
+    SetupSettingLimits toe = 3;
+    SetupSettingLimits caster = 4;
+    SetupSettingLimits static_camber = 5;
+    SetupSettingLimits toe_out_linear = 6;
+    SetupSettingLimits compound = 7;
+}
+
+message FuelStrategySettingLimits {
+    SetupSettingLimits fuel = 1;
+}
+
+message CarSetupDataLimits {
+    MechanicalBalanceLimits mechanical_balance = 1;
+    repeated SuspensionSettingLimits suspensions = 2;
+    repeated DamperSettingsLimits dampers = 3;
+    repeated TyreAlignmentLimits alignments = 4;
+    ElectronicsSettingsLimits electronics = 5;
+    AeroSettingsLimits aero = 6;
+    FuelStrategySettingLimits fuel_strategy = 7;
+}

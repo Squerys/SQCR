@@ -1,0 +1,171 @@
+
+ShowroomCommands.protoLogicScene.proto
+Math.protoCarDataCache.protoScene.proto"é
+ShowroomCarStateData9
+instrumentation_values (2.CarInstrumentationValuesC
+ instrumentation_values_min_limit (2.CarInstrumentationValuesC
+ instrumentation_values_max_limit (2.CarInstrumentationValues1
+electronics_values (2.CarElectronicsValues;
+electronics_values_min_limit (2.CarElectronicsValues;
+electronics_values_max_limit (2.CarElectronicsValues8
+electronics_is_modifiable (2.CarElectronicsValues&
+
+animations (2.ShowroomAnimation7
+optional_animations (2.ShowroomOptionalAnimation
+has_pit_limiter (+
+physics_state2 (2.FakeCarPhysicsState" 
+ShowroomAnimation)
+animation_type (2.CarAnimationType>
+	play_type (2+.GenericRendererAnimation.AnimationPlayType
+target (
+lut_size ("•
+ShowroomOptionalAnimation
+animation_name (	>
+	play_type (2+.GenericRendererAnimation.AnimationPlayType
+target (
+lut_size ("Y
+ShowroomListResponse
+display_named (	
+	sky_rules
+ (2	.SkyRules
+index ("/
+ShowroomRequestCarStateData
+im_empty ("D
+ShowroomResponseCarStateData$
+state (2.ShowroomCarStateData"D
+ShowroomRequestUpdateCarState#
+state (2.FakeCarPhysicsState"F
+ShowroomResponseUpdateCarState$
+state (2.ShowroomCarStateData"0
+ShowroomRequestResetCarState
+im_empty ("E
+ShowroomResponseResetCarState$
+state (2.ShowroomCarStateData".
+ShowroomRequestSaveCurrent
+im_empty ("/
+ShowroomResponseSaveCurrent
+im_empty ("'
+ShowroomRequestList
+im_empty ("@
+ShowroomResponseList(
+	showrooms
+ (2.ShowroomListResponse"&
+ShowroomRequestSelect
+index ("ü
+ShowroomResponseSelect
+selected_showroom_name (	
+selected_weather_index< (
+weather_name_list= (	
+selected_hdri_index (
+hdri_name_list (	&
+date_time_limits( (2.Vector2Data
+hide_weather_selector2 (
+hide_hdri_selector3 (!
+hide_time_of_day_selector4 (
+	date_time+ (
+is_sky_static) (=
+scene_camera_option> (2 .ShowroomData.SceneCameraOptions(
+camera_mode? (2.ShowroomCameraMode
+spawn_indexF (
+
+spawn_sizeG (JJJ"-
+ShowroomRequestSelectWeather
+index (".
+ShowroomResponseSelectWeather
+index ("*
+ShowroomRequestSelectHdri
+index ("+
+ShowroomResponseSelectHdri
+index ("2
+ShowroomRequestSelectDateTime
+	date_time ("3
+ShowroomResponseSelectDateTime
+	date_time ("T
+'ShowroomRequestUpdateCarInstrumentation)
+values (2.CarInstrumentationValues"<
+(ShowroomResponseUpdateCarInstrumentation
+im_empty ("L
+#ShowroomRequestUpdateCarElectronics%
+values (2.CarElectronicsValues"8
+$ShowroomResponseUpdateCarElectronics
+im_empty ("^
+!ShowroomRequestUpdateCarAnimation)
+animation_type (2.CarAnimationType
+target ("6
+"ShowroomResponseUpdateCarAnimation
+im_empty ("\
+)ShowroomRequestUpdateCarOptionalAnimation
+optional_animation_name (	
+target (">
+*ShowroomResponseUpdateCarOptionalAnimation
+im_empty ("0
+ShowroomRequestResetShowroom
+im_empty ("1
+ShowroomResponseResetShowroom
+im_empty ("0
+ShowroomRequestSelectSpawnPoint
+index ("1
+ ShowroomResponseSelectSpawnPoint
+index ("1
+ShowroomRequestSelectInterior
+im_empty ("2
+ShowroomResponseSelectInterior
+im_empty ("1
+ShowroomRequestSelectExterior
+im_empty ("2
+ShowroomResponseSelectExterior
+im_empty ("/
+ShowroomRequestSelectWheels
+im_empty ("0
+ShowroomResponseSelectWheels
+im_empty ("9
+%ShowroomRequestToggleInteriorExterior
+im_empty (":
+&ShowroomResponseToggleInteriorExterior
+im_empty ("S
+'ShowroomRequestSelectShowroomCameraMode(
+camera_mode (2.ShowroomCameraMode"<
+(ShowroomResponseSelectShowroomCameraMode
+im_empty ("Ü
+ShowroomCommands<
+request_car_state_data (2.ShowroomRequestCarStateData?
+response_car_state_dataè (2.ShowroomResponseCarStateData@
+request_update_car_state (2.ShowroomRequestUpdateCarStateC
+response_update_car_stateé (2.ShowroomResponseUpdateCarState>
+request_reset_car_state (2.ShowroomRequestResetCarStateA
+response_reset_car_stateê (2.ShowroomResponseResetCarState9
+request_save_current (2.ShowroomRequestSaveCurrent<
+response_save_currentë (2.ShowroomResponseSaveCurrent*
+request_list (2.ShowroomRequestList-
+response_listì (2.ShowroomResponseList.
+request_select (2.ShowroomRequestSelect1
+response_selectí (2.ShowroomResponseSelect=
+request_select_weather (2.ShowroomRequestSelectWeather@
+response_select_weatherî (2.ShowroomResponseSelectWeather7
+request_select_hdri (2.ShowroomRequestSelectHdri:
+response_select_hdriï (2.ShowroomResponseSelectHdri@
+request_select_date_time	 (2.ShowroomRequestSelectDateTimeC
+response_select_date_timeð (2.ShowroomResponseSelectDateTimeT
+"request_update_car_instrumentation
+ (2(.ShowroomRequestUpdateCarInstrumentationW
+#response_update_car_instrumentationñ (2).ShowroomResponseUpdateCarInstrumentationL
+request_update_car_electronics (2$.ShowroomRequestUpdateCarElectronicsO
+response_update_car_electronicsò (2%.ShowroomResponseUpdateCarElectronicsH
+request_update_car_animation (2".ShowroomRequestUpdateCarAnimationK
+response_update_car_animationó (2#.ShowroomResponseUpdateCarAnimationY
+%request_update_car_optional_animation (2*.ShowroomRequestUpdateCarOptionalAnimation\
+&response_update_car_optional_animationô (2+.ShowroomResponseUpdateCarOptionalAnimation=
+request_reset_showroom (2.ShowroomRequestResetShowroom@
+response_reset_showroom÷ (2.ShowroomResponseResetShowroomD
+request_select_spawn_point (2 .ShowroomRequestSelectSpawnPointG
+response_select_spawn_pointø (2!.ShowroomResponseSelectSpawnPoint?
+request_select_interior (2.ShowroomRequestSelectInteriorB
+response_select_interiorù (2.ShowroomResponseSelectInterior?
+request_select_exterior (2.ShowroomRequestSelectExteriorB
+response_select_exteriorú (2.ShowroomResponseSelectExterior;
+request_select_wheels (2.ShowroomRequestSelectWheels>
+response_select_wheelsû (2.ShowroomResponseSelectWheelsP
+ request_toggle_interior_exterior (2&.ShowroomRequestToggleInteriorExteriorS
+!response_toggle_interior_exteriorü (2'.ShowroomResponseToggleInteriorExteriorU
+#request_select_showroom_camera_mode (2(.ShowroomRequestSelectShowroomCameraModeX
+$response_select_showroom_camera_modeý (2).ShowroomResponseSelectShowroomCameraModebproto3

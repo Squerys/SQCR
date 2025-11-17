@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "Math.proto";
+import "CarData.proto";
+import "LogicScene.proto";
+import "Options.proto";
+
+message TuningPart {
+    CarPartType car_part_type = 201;
+    
+    oneof physics_tuning {
+        EngineTune engine_tune = 1;
+        EngineData engine = 2;
+        GearboxData gearbox = 3;
+        DrivetrainData drivetrain = 4;
+        ClutchData clutch = 5;
+        BrakesData brakes = 6;
+        ElectronicsData electronics = 33;
+        SuspensionsTuning suspensions = 7;
+        WingData wing = 8;
+        AeroPackage aero_package = 9;
+        SetupData setup = 30;
+        SetupLimitsData setup_limits = 31;
+        PerformanceModeTuning performance_modes_tuning = 32;
+    }
+    
+    message EngineTune {
+        float multiplier = 1;
+        float add = 2;
+        float cos_ampl = 3;
+        float cos_period = 4;
+        float cos_phase = 5;
+    }
+    
+    message EngineData {
+        string path = 1;
+    }
+    
+    message GearboxData {
+        string path = 1;
+    }
+    
+    message DrivetrainData {
+        string path = 1;
+    }
+    
+    message ClutchData {
+        string path = 1;
+    }
+    
+    message BrakesData {
+        string path = 1;
+    }
+    
+    message ElectronicsData {
+        string path = 1;
+    }
+    
+    message WingData {
+        string path = 1;
+        int32 wing_index_override = 2;
+    }
+    
+    message AeroPackage {
+        AeroData data = 1;
+    }
+    
+    message SetupData {
+        string path = 1;
+    }
+    
+    message SetupLimitsData {
+        string path = 1;
+    }
+    
+    message SuspensionsTuning {
+        string coilover_path_front = 1;
+        string coilover_path_rear = 4;
+        
+        reserved 2, 3, 5, 6;
+    }
+    
+    message BodyWeightReduction {
+        float weight_change = 1;
+        Vector3Data cg_change = 2;
+    }
+    
+    message HubWeightReduction {
+        float weight_change = 1;
+    }
+    
+    message PerformanceModeTuning {
+        repeated PerformanceModeData performance_modes = 1;
+    }
+}

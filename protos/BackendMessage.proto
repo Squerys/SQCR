@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+message BackendMessageToBeSent {
+    google.protobuf.Any msg = 1;
+}
+
+message BackendMessage {
+    google.protobuf.Any msg = 1;
+}
+
+message BackendError {
+    BackendResponse error = 1;
+}
+
+enum BackendResponse {
+    RESPONSEOK = 0;
+    NOUSER = 1;
+    BACKENDDISCONNECTED = 2;
+    SERVER_NOT_REGISTERED = 3;
+    DATABASE_DOWN = 4;
+}

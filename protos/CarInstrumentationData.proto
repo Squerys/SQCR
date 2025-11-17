@@ -1,0 +1,268 @@
+syntax = "proto3";
+
+import "Options.proto";
+import "Scene.proto";
+import "LogicScene.proto";
+import "Math.proto";
+
+message CarLightingSystemData {
+    repeated Stage main_lights = 1;
+    message Stage {
+        repeated Set shared_lights = 1;
+        
+        reserved 2;
+    }
+    
+    Stage shared_main_lights = 20;
+    Stage pit_limiter = 2;
+    repeated Stage special_lights = 5;
+    Stage shared_special_lights = 21;
+    repeated Stage cockpit_lights = 6;
+    Stage shared_cockpit_lights = 22;
+    
+    repeated Blinker blinkers = 23;
+    message Blinker {
+        string name = 1;
+        bool start_blinking_off = 2;
+        float blink_duration_s_when_on = 3;
+        float blink_duration_s_when_off = 4;
+    }
+    
+    repeated float intensity_filters = 7;
+    
+    reserved 3, 4, 10, 11;
+    
+    message Lights {
+        CarLightingFunction light_function = 1;
+        string blinker_name = 27;
+        bool deprecated_can_blink = 4;
+        bool deprecated_start_blinking_off = 21;
+        float deprecated_blink_duration_s_when_on = 7;
+        float deprecated_blink_duration_s_when_off = 9;
+        float intensity_when_on = 3;
+        float intensity_when_off = 8;
+        float intensity_glass_when_on = 20;
+        float intensity_glass_when_off = 12;
+        float emitter_intensity_on = 14;
+        float emitter_intensity_off = 15;
+        float emitter_radius_on = 22;
+        float emitter_radius_off = 23;
+        float emitter_inner_angle_on = 40;
+        float emitter_inner_angle_off = 41;
+        float emitter_outer_angle_on = 42;
+        float emitter_outer_angle_off = 43;
+        bool is_on_popup_headlights = 28;
+        
+        reserved 16, 17, 25, 26;
+    }
+    
+    message Set {
+        CarLightingCategory category = 1;
+        repeated Lights materials_parameters = 3;
+        float auto_stop_time_s = 4;
+        
+        reserved 5;
+    }
+}
+
+message CarDisplaySystemData {
+    repeated Page pages = 2;
+    message Page {
+        string page_key = 4;
+        
+        reserved 1, 2, 3;
+    }
+    
+    reserved 1;
+}
+
+message CarAnalogicSystemData {
+    repeated Instance rpm = 1;
+    message Instance {
+        string bone_name = 1;
+        Axis axis_origin = 2;
+        
+        repeated Lut values = 3;
+        message Lut {
+            float target_value = 1;
+            float result_degree = 2;
+        }
+        
+        bool stop_at_min = 5;
+        float stop_at_min_delay_time_s = 20;
+        bool stop_at_max = 6;
+        float stop_at_max_delay_time_s = 21;
+        float place_holder_value_ignition_on = 7;
+        float place_holder_value_ignition_off = 8;
+        float upward_filter = 30;
+        float downward_filter = 31;
+        float upward_oscillation_speed = 40;
+        float downward_oscillation_speed = 41;
+        
+        reserved 4;
+    }
+    
+    repeated Instance speed_kmh = 3;
+    repeated Instance fuel_liters = 4;
+    repeated Instance fuel_pressure_bar = 5;
+    repeated Instance water_pressure_bar = 6;
+    repeated Instance oil_pressure_bar = 7;
+    repeated Instance battery_voltage = 16;
+    repeated Instance turbo_pressure_bar = 8;
+    repeated Instance water_temperature_c = 9;
+    repeated Instance oil_temperature_c = 10;
+    repeated Instance turbo_limiter = 11;
+    repeated Instance place_holder = 12;
+    repeated Instance hours = 13;
+    repeated Instance minutes = 14;
+    repeated Instance seconds = 15;
+    
+    enum Axis {
+        CarAnalogicSystemData_Axis_X = 0;
+        CarAnalogicSystemData_Axis_Y = 1;
+        CarAnalogicSystemData_Axis_Z = 2;
+    }
+}
+
+message CarLedSystemData {
+    repeated Instances main_light_stage = 19;
+    message Instances {
+        repeated Instance instances = 1;
+        
+        reserved 30;
+    }
+    
+    repeated Instances cockpit_light_stage = 20;
+    repeated Instances special_light_stage = 21;
+    Instances rpm = 1;
+    Instances pit_limiter = 2;
+    Instances engine_limiter = 3;
+    Instances fuel = 4;
+    Instances slip_lf = 5;
+    Instances slip_rf = 6;
+    Instances slip_lr = 7;
+    Instances slip_rr = 8;
+    Instances slip_front = 9;
+    Instances slip_rear = 10;
+    Instances lock_lf = 11;
+    Instances lock_rf = 12;
+    Instances lock_lr = 13;
+    Instances lock_rr = 14;
+    Instances lock_front = 15;
+    Instances lock_rear = 16;
+    Instances abs_in_action = 17;
+    Instances tc_in_action = 18;
+    Instances esc_in_action = 63;
+    Instances abs_disabled = 29;
+    Instances tc_disabled = 32;
+    Instances esc_disabled = 62;
+    Instances engine_not_running = 36;
+    Instances launch_control_active = 28;
+    Instances rain_light = 22;
+    Instances flashing = 23;
+    Instances direction_left = 24;
+    Instances direction_right = 25;
+    Instances warning = 26;
+    Instances ignition = 27;
+    Instances handbrake_in_action = 41;
+    repeated Instances active_performances = 37;
+    repeated Instances gearbox = 38;
+    uint32 engine_limiter_rpm = 33;
+    repeated float intensity_filters = 35;
+    
+    reserved 30, 31, 34, 40, 50, 51, 60, 61;
+    
+    message Instance {
+        LedLight led = 1;
+        float physics_value_on = 2;
+        bool start_blinking_off = 3;
+        repeated CarLightingFunction sync_with_functions = 30;
+        float time_on = 6;
+        Vector4Data color_on = 20;
+        float value_on = 7;
+        float time_off = 8;
+        Vector4Data color_off = 21;
+        float value_off = 9;
+        
+        reserved 5, 10, 22, 11;
+    }
+}
+
+message CarWiperSystemData {
+    Wiper wiper = 101;
+    message Wiper {
+        RestType rest_type = 1;
+        bool start_from_left = 2;
+        float min_vibration_car_speed = 3;
+        float max_vibration_car_speed = 4;
+        float vibration_speed = 5;
+        float vibration_max_amplitude_seconds = 6;
+        float g_force_filter = 7;
+        float g_force_max_amplitude_seconds = 8;
+        float min_g_force = 9;
+        float max_g_force = 10;
+    }
+    
+    repeated Stage stages = 1;
+    message Stage {
+        float interval_s = 1;
+        float rate_s = 2;
+    }
+    
+    reserved 100;
+    
+    enum RestType {
+        RestType_OnCenter = 0;
+        RestType_OnLeft = 1;
+        RestType_OnRight = 2;
+    }
+}
+
+message CarSystemPhysicsDebugValues {
+    uint32 engine_rpm = 1;
+    uint32 limiter_rpm = 12;
+    float gas = 30;
+    float brake = 31;
+    float handbrake = 33;
+    CarSystemPhysicsDebugValues_Gearbox gearbox = 35;
+    Vector3Data g_forces = 32;
+    int32 fuel_liters = 2;
+    float fuel_pressure_bar = 3;
+    uint32 speed_kmh = 4;
+    float turbo_pressure_bar = 5;
+    float turbo_limiter_bar = 6;
+    int32 water_temperature_c = 7;
+    float water_pressure_bar = 8;
+    float battery_voltage = 11;
+    float oil_pressure_bar = 10;
+    float nd_slip_lf = 20;
+    float nd_slip_rf = 21;
+    float nd_slip_lr = 22;
+    float nd_slip_rr = 23;
+    float wheel_angular_speed_lf = 40;
+    float wheel_angular_speed_rf = 41;
+    float wheel_angular_speed_lr = 42;
+    float wheel_angular_speed_rr = 43;
+    bool is_abs_in_action = 100;
+    bool is_tc_in_action = 101;
+    bool is_esc_in_action = 103;
+    bool is_launch_control_active = 102;
+    float damage_front = 110;
+    float damage_rear = 111;
+    float damage_left = 112;
+    float damage_right = 113;
+    float damage_center = 114;
+}
+
+enum CarSystemPhysicsDebugValues_Gearbox {
+    CarSystemPhysicsDebugValues_Gearbox_R = 0;
+    CarSystemPhysicsDebugValues_Gearbox_N = 1;
+    CarSystemPhysicsDebugValues_Gearbox_1 = 2;
+    CarSystemPhysicsDebugValues_Gearbox_2 = 3;
+    CarSystemPhysicsDebugValues_Gearbox_4 = 5;
+    CarSystemPhysicsDebugValues_Gearbox_5 = 6;
+    CarSystemPhysicsDebugValues_Gearbox_6 = 7;
+    CarSystemPhysicsDebugValues_Gearbox_7 = 8;
+    CarSystemPhysicsDebugValues_Gearbox_8 = 9;
+    CarSystemPhysicsDebugValues_Gearbox_9 = 10;
+}

@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+import "Options.proto";
+import "Customization.proto";
+
+message TyreInitializerData {
+    float width = 1;
+    float aspect_ratio = 2;
+    float diameter = 3;
+    float load_index = 4;
+    float speed_index = 5;
+    float pressure = 6;
+    
+    reserved 7;
+}
+
+message TyresPressureData {
+    float pressureFlexGain = 1;
+    float rollingResistanceGain = 2;
+    float rollingHeatGain = 3;
+    float gainD = 4;
+    float idealPressure = 5;
+    float pressureReference = 6;
+    string pressureSpringCurve = 7;
+    float pressureSpringGain = 8;
+    float curbPressureLossMult = 9;
+    float curbPressureLossThreshold = 10;
+}
+
+message RollingResistanceData {
+    float rr0 = 1;
+    float rr1 = 2;
+    float rr_slip = 3;
+    float rrWearMult = 4;
+}
+
+message TyresGrooveData {
+    float grooveFactor = 1;
+    float grooveSAFactor = 2;
+    float grooveSRFactor = 3;
+}
+
+message TyresCamberData {
+    float camberGain = 1;
+    float camberVerticalKRangeDeg = 2;
+    float camberVerticalKGain = 3;
+    float dcamber0 = 4;
+    float dcamber1 = 5;
+    
+    reserved 6, 7;
+}
+
+message TyresSpeedSensitivityData {
+    SpeedSensType type = 7;
+    enum SpeedSensType {
+        old = 0;
+        new_1 = 1;
+    }
+    
+    float ref_speed = 5;
+    float temperature_speed_shift = 6;
+    float mu0T = 1;
+    float muTSensitivity = 2;
+    float muSpeedSensitivity = 3;
+    float TrefMuT = 4;
+    float mu0T1 = 11;
+    float ref_speed1 = 8;
+    float muSpeedSensitivity1 = 9;
+    float muTSensitivity1 = 12;
+    float TrefMuT1 = 13;
+    float mu0T1_x = 112;
+    float ref_speed1_x = 113;
+    float muSpeedSensitivity1_x = 114;
+    float muTSensitivity1_x = 115;
+    float TrefMuT1_x = 116;
+    
+    reserved 10;
+}
+
+message TyresThermalPatchData {
+    float verticalSpringK = 1;
+    float verticalDampK = 2;
+    float wearMult = 3;
+    float density = 110;
+    float specific_heat = 111;
+    float surface_core_mass_ratio = 112;
+    float cool_factor_rain = 113;
+    float cool_factor = 114;
+    float heat_partition_coeff = 115;
+    float road_conduction = 116;
+    float thermal_conductivity = 117;
+    float rolling_factor = 118;
+    float grainGain = 16;
+    float grainGamma = 17;
+    float grainSlipAngleGain = 18;
+    float grainSlipAngleGamma = 19;
+    float grainSlipAngleThreshold = 20;
+    float blisterGain = 21;
+    float blisterGamma = 22;
+    float practicalTempSource = 23;
+    float brakeTransferFactor = 24;
+    string thermalPerformanceCurve = 25;
+    float contactIMO = 26;
+    float TrefFrictionLimitAngle = 27;
+    float frictionLimitAngleTSensitivity = 28;
+    
+    reserved 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 29, 30;
+}
+
+message TyresModelData {
+    float Dy0 = 1;
+    float Dx0 = 2;
+    float lsExpY = 3;
+    float lsExpX = 4;
+    float Fz0 = 5;
+    float frictionLimitAngle = 6;
+    float flexGain = 7;
+    float cfXmult = 8;
+    float brakeDXMod = 9;
+    float combinedFactor = 10;
+    float gripSlipFactor = 13;
+    string wearCurve = 14;
+    float grainFactor = 16;
+    float contactWearIMO = 17;
+    float relaxationLengthY = 18;
+    float relaxationLengthX = 19;
+    float mzTweakMult = 15;
+    float mzScale = 20;
+    float mzTrailNdSlipReduction = 21;
+    float mzTrailRemap = 22;
+    float brushExponent = 23;
+    
+    reserved 11, 12;
+}
+
+message TyresData {
+    float width = 1;
+    float radius = 2;
+    float rate = 3;
+    float damping = 4;
+    float angularInertia = 5;
+    float rimRadius = 6;
+    float radiusRaiseK = 7;
+    float treadHeightMM = 8;
+    float treadConsumptionK = 9;
+    float mass = 10;
+    float lateralFlexK = 11;
+    float lateralFlexC = 12;
+    float longitudinalFlexK = 13;
+    float longitudinalFlexC = 14;
+    float explosionTemperature = 15;
+    float blanketTemperature = 16;
+    float FlatSpotK = 17;
+    float normalToFlexRatio = 18;
+    float contactCamber = 19;
+    float contactFlex = 20;
+    float contactVerticalFlex = 21;
+    float slipVibrationsThresholdMS = 22;
+    float slipVibrationsScale = 23;
+    float slipVibrationOmega = 24;
+    float steerDamping = 25;
+    float steerDampingMz = 26;
+}
+
+message TyresCompoundData {
+    string name = 1;
+    string shortName = 2;
+    PhysicsTyreCompound tyre_compound = 21;
+    TyresData tyreData = 3;
+    TyresModelData modelData = 4;
+    TyresThermalPatchData thermalData = 5;
+    TyresPressureData pressureData = 6;
+    TyresCamberData camberData = 7;
+    TyresSpeedSensitivityData speedSensitivity = 8;
+    RollingResistanceData rollingResistance = 9;
+    TyresGrooveData grooveData = 10;
+    float pressure = 11;
+    TyreInitializerData init_data = 12;
+}

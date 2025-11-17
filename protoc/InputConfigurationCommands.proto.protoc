@@ -1,0 +1,233 @@
+
+ InputConfigurationCommands.protoInputConfiguration.protoPlatformCommands.protoInputEnum.proto"8
+&InputConfigurationRequestListeningMode
+enable ("M
+'InputConfigurationResponseListeningMode"
+response (2.CommandResponse"1
+InputConfigurationRequestPage
+is_enter ("D
+InputConfigurationResponsePage"
+response (2.CommandResponse"2
+InputConfigurationRequestApply
+im_empty ("E
+InputConfigurationResponseApply"
+response (2.CommandResponse"3
+InputConfigurationRequestCancel
+im_empty ("∞
+ InputConfigurationResponseCancel"
+response (2.CommandResponse%
+settings (2.InputConfiguration
+connected_guids (	(
+shared_commands (2.SharedCommands"I
+5InputConfigurationRequestEraseDisconnectedControllers
+im_empty ("\
+6InputConfigurationResponseEraseDisconnectedControllers"
+response (2.CommandResponse"C
+(InputConfigurationRequestEraseController
+controller_guid (	"O
+)InputConfigurationResponseEraseController"
+response (2.CommandResponse"C
+(InputConfigurationRequestClearController
+controller_guid (	"O
+)InputConfigurationResponseClearController"
+response (2.CommandResponse":
+&InputConfigurationRequestClearKeyboard
+im_empty ("M
+'InputConfigurationResponseClearKeyboard"
+response (2.CommandResponse"I
+ InputConfigurationRequestRefresh
+im_empty (
+is_soft_set ("∆
+!InputConfigurationResponseRefresh"
+response (2.CommandResponse%
+settings (2.InputConfiguration
+connected_guids (	(
+shared_commands (2.SharedCommands
+is_soft_set ("2
+InputConfigurationRequestReset
+im_empty ("Ø
+InputConfigurationResponseReset"
+response (2.CommandResponse%
+settings (2.InputConfiguration
+connected_guids (	(
+shared_commands (2.SharedCommands"3
+InputConfigurationRequestGroups
+im_empty ("e
+ InputConfigurationResponseGroups"
+response (2.CommandResponse
+groups (2.ControlGroup">
++SettingsRequestInputConfigurationPresetList
+version ("e
+,SettingsResponseInputConfigurationPresetList"
+response (2.CommandResponse
+	filenames (	"?
++SettingsRequestInputConfigurationLoadPreset
+filename (	"£
+,SettingsResponseInputConfigurationLoadPreset"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"P
++SettingsRequestInputConfigurationSavePreset
+filename (	
+version ("R
+,SettingsResponseInputConfigurationSavePreset"
+response (2.CommandResponse"A
+-SettingsRequestInputConfigurationDeletePreset
+filename (	"T
+.SettingsResponseInputConfigurationDeletePreset"
+response (2.CommandResponse"Ñ
+InputConfigurationRequestAdd&
+
+definition (2.ControlDefinition
+guid (	
+is_shift_button (
+listen_to_alld ("›
+InputConfigurationResponseAdd"
+response (2.CommandResponse
+
+error_guid (	
+	error_key ( 
+error_required_modifiers (%
+settings
+ (2.InputConfiguration(
+shared_commands (2.SharedCommands"Ç
+!InputConfigurationRequestForceAdd&
+
+definition (2.ControlDefinition
+guid (	
+key (
+required_modifiers ("ô
+"InputConfigurationResponseForceAdd"
+response (2.CommandResponse%
+settings
+ (2.InputConfiguration(
+shared_commands (2.SharedCommands"Œ
+InputConfigurationRequestEdit&
+
+definition (2.ControlDefinition
+guid (	
+trigger_time_ms
+ (
+repeat_time_ms (
+require_shift (/
+axis_settings (2.InputDeviceAxisSettings"ﬁ
+InputConfigurationResponseEdit"
+response (2.CommandResponse
+
+error_guid (	
+	error_key ( 
+error_required_modifiers (%
+settings
+ (2.InputConfiguration(
+shared_commands (2.SharedCommands"p
+InputConfigurationRequestRemove&
+
+definition (2.ControlDefinition
+guid (	
+is_shift_button ("ó
+ InputConfigurationResponseRemove"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"}
+0InputConfigurationRequestUpdateKeyboardModifiers
+is_ctrl_enabled (
+is_shift_enabled (
+is_alt_enabled ("®
+1InputConfigurationResponseUpdateKeyboardModifiers"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"_
+/InputConfigurationRequestUpdateKeyboardSettings,
+keyboard_settings (2.KeyboardSettings"ß
+0InputConfigurationResponseUpdateKeyboardSettings"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"~
+2InputConfigurationRequestUpdateInputDeviceSettings3
+input_device_settings (2.InputDeviceSettings
+is_keyboard ("™
+3InputConfigurationResponseUpdateInputDeviceSettings"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"{
+8InputConfigurationRequestUpdateForceFeedbackEnhancements?
+force_feedback_enhancements (2.ForceFeedbackEnhancements"∞
+9InputConfigurationResponseUpdateForceFeedbackEnhancements"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"l
+3InputConfigurationRequestUpdateTrackIRConfiguration5
+track_ir_configuration (2.TrackIRConfiguration"´
+4InputConfigurationResponseUpdateTrackIRConfiguration"
+response (2.CommandResponse%
+settings (2.InputConfiguration(
+shared_commands (2.SharedCommands"N
+)InputConfigurationRequestAxiiListenerMode!
+mode (2.UIAxiiListenerMode">
+*InputConfigurationResponseAxiiListenerMode
+im_empty ("o
+$InputConfigurationRequestTextboxMode
+is_textbox_mode (.
+optional_allowed_actions (2.InputAction"9
+%InputConfigurationResponseTextboxMode
+im_empty ("O
+&InputConfigurationRequestActionFilters%
+allowed_actions (2.InputAction";
+'InputConfigurationResponseActionFilters
+im_empty ("á 
+InputConfigurationCommandsG
+request_listening_mode (2'.InputConfigurationRequestListeningModeJ
+response_listening_modeË (2(.InputConfigurationResponseListeningMode4
+request_page (2.InputConfigurationRequestPage7
+response_pageÈ (2.InputConfigurationResponsePage6
+request_apply (2.InputConfigurationRequestApply9
+response_applyÍ (2 .InputConfigurationResponseApplyf
+&request_erase_disconnected_controllers (26.InputConfigurationRequestEraseDisconnectedControllersi
+'response_erase_disconnected_controllersÎ (27.InputConfigurationResponseEraseDisconnectedControllersK
+request_erase_controller (2).InputConfigurationRequestEraseControllerN
+response_erase_controllerÏ (2*.InputConfigurationResponseEraseControllerK
+request_clear_controller (2).InputConfigurationRequestClearControllerN
+response_clear_controllerÌ (2*.InputConfigurationResponseClearControllerG
+request_clear_keyboard (2'.InputConfigurationRequestClearKeyboardJ
+response_clear_keyboardÓ (2(.InputConfigurationResponseClearKeyboard:
+request_refresh (2!.InputConfigurationRequestRefresh=
+response_refreshÔ (2".InputConfigurationResponseRefresh6
+request_reset	 (2.InputConfigurationRequestReset9
+response_reset (2 .InputConfigurationResponseReset8
+request_groups
+ (2 .InputConfigurationRequestGroups;
+response_groupsÒ (2!.InputConfigurationResponseGroupsI
+request_preset_list (2,.SettingsRequestInputConfigurationPresetListL
+response_preset_listÚ (2-.SettingsResponseInputConfigurationPresetListI
+request_load_preset (2,.SettingsRequestInputConfigurationLoadPresetL
+response_load_presetÛ (2-.SettingsResponseInputConfigurationLoadPresetI
+request_save_preset (2,.SettingsRequestInputConfigurationSavePresetL
+response_save_presetÙ (2-.SettingsResponseInputConfigurationSavePresetM
+request_delete_preset (2..SettingsRequestInputConfigurationDeletePresetP
+response_delete_presetı (2/.SettingsResponseInputConfigurationDeletePreset2
+request_add (2.InputConfigurationRequestAdd5
+response_addˆ (2.InputConfigurationResponseAdd=
+request_force_add (2".InputConfigurationRequestForceAdd@
+response_force_add˜ (2#.InputConfigurationResponseForceAdd4
+request_edit (2.InputConfigurationRequestEdit7
+response_edit¯ (2.InputConfigurationResponseEdit8
+request_remove (2 .InputConfigurationRequestRemove;
+response_remove˘ (2!.InputConfigurationResponseRemove\
+!request_update_keyboard_modifiers (21.InputConfigurationRequestUpdateKeyboardModifiers_
+"response_update_keyboard_modifiers˙ (22.InputConfigurationResponseUpdateKeyboardModifiersZ
+ request_update_keyboard_settings (20.InputConfigurationRequestUpdateKeyboardSettings]
+!response_update_keyboard_settings˚ (21.InputConfigurationResponseUpdateKeyboardSettingsa
+$request_update_input_device_settings (23.InputConfigurationRequestUpdateInputDeviceSettingsd
+%response_update_input_device_settings¸ (24.InputConfigurationResponseUpdateInputDeviceSettingsm
+*request_update_force_feedback_enhancements (29.InputConfigurationRequestUpdateForceFeedbackEnhancementsp
++response_update_force_feedback_enhancements˝ (2:.InputConfigurationResponseUpdateForceFeedbackEnhancementsd
+&request_update_track_i_r_configuration (24.InputConfigurationRequestUpdateTrackIRConfigurationg
+'response_update_track_i_r_configuration˛ (25.InputConfigurationResponseUpdateTrackIRConfigurationN
+request_axii_listener_mode (2*.InputConfigurationRequestAxiiListenerModeQ
+response_axii_listener_modeˇ (2+.InputConfigurationResponseAxiiListenerModeG
+request_action_filters (2'.InputConfigurationRequestActionFiltersJ
+response_action_filtersÄ (2(.InputConfigurationResponseActionFiltersC
+request_textbox_mode (2%.InputConfigurationRequestTextboxModeF
+response_textbox_modeÅ (2&.InputConfigurationResponseTextboxMode8
+request_cancel (2 .InputConfigurationRequestCancel;
+response_cancelÇ (2!.InputConfigurationResponseCancelbproto3

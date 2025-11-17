@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "Options.proto";
+import "Math.proto";
+import "Gameplay.proto";
+
+message GasStationParameters {
+    float pricePerLitre = 1;
+    float carWashPrice = 2;
+}
+
+message CruiseUserProfile {
+    TransformData garage_spawn_position = 1;
+    repeated string last_selected_car_models = 2;
+}
+
+message Cruise {
+    message Specialization {
+        bool proto_options = 666;
+    }
+    
+    message State {
+        message Game {
+            repeated EventList event_configuration_list = 10;
+            message EventList {
+                string path = 1;
+                SeasonDefinition configuration = 2;
+            }
+        }
+        
+        message GameCar {
+            int32 someNumber = 1;
+            float partial_distance = 2;
+            float odo_distance = 3;
+        }
+    }
+    
+    message ZonePayload {
+        SeasonDefinition event_configuration = 1;
+    }
+}
+
+message CruiseUiData {
+    bool hide_testing_cruise_mode = 1;
+}

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+import "Math.proto";
+import "Options.proto";
+import "LogicScene.proto";
+import "Customization.proto";
+import "InputEnum.proto";
+
+message CustomTableData {
+    repeated Column columns = 1;
+    message Column {
+        string header = 1;
+        Value value = 2;
+        string comment = 3;
+    }
+    
+    repeated Line lines = 2;
+    message Line {
+        repeated Value values = 1;
+    }
+    
+    message Value {
+        oneof value {
+            double double = 1;
+            float float = 2;
+            int32 int_32 = 3;
+            int64 int_64 = 4;
+            uint32 unsigned_int_32 = 5;
+            uint64 unsigned_int_64 = 6;
+            bool boolean = 7;
+            string string = 8;
+            string content_path = 9;
+            Vector2Data vector_2 = 20;
+            Vector3Data vector_3 = 21;
+            Vector4Data vector_4 = 22;
+            QuaternionData quaterion = 23;
+            MatrixData matrix = 24;
+            TransformData tranform = 25;
+        }
+    }
+}
+
+message PresetTableData {
+    Line header = 1;
+    message Line {
+        oneof line {
+            CarContentData car_content = 1;
+            TrackContentData track_content = 2;
+            TrackContainersContentData track_containers_content = 8;
+            MaterialFinish material_finish = 9;
+            TyreCompoundData tyre_compound_data = 10;
+            BrandData brand_data = 11;
+            AudioGuiEvents audio_gui_events = 12;
+            ShowroomData showroom_content = 13;
+            OpponentsContentData opponents_content = 14;
+            PostProcessingPreset post_processing_preset = 15;
+            InputFilterData input_filter_data = 22;
+        }
+        
+        reserved 3, 4, 5, 6, 20, 21;
+    }
+    
+    repeated Line lines = 3;
+}
+
+message TableData {
+    string comment = 1;
+    
+    oneof table {
+        PresetTableData preset = 2;
+        CustomTableData custom = 3;
+    }
+}
+
+message InputFilterData {
+    string file_name = 1;
+    bool ignore_base = 2;
+    repeated InputAction allowed_input_actions = 3;
+    repeated InputAction not_allowed_input_actions = 7;
+    bool is_base = 4;
+    bool is_tester = 5;
+    bool is_dev = 6;
+    
+    reserved 8;
+}

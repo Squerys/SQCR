@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+message SimulationUiData {
+    bool show_investigation_panel = 1;
+    bool show_simulation_panel = 2;
+}
+
+message TimelineUiData {
+    bool show_timeline_menu = 1;
+    bool enable_debug = 2;
+}
+
+message UINotificationTuple {
+    UINotificationValueType type = 1;
+    repeated string values = 2;
+}
+
+message UINotification {
+    UINotificationType type = 1;
+    repeated UINotificationTuple tuples = 2;
+    uint32 time_to_hide = 3;
+    repeated UINotificationType notifications_to_clear = 4;
+}
+
+message ScenePresenterUIData {
+    bool show_focused_car = 1;
+    bool recreate_all_particle_emitters = 2;
+}
+
+enum UINotificationType {
+    UINotificationType_LevelUp = 0;
+    UINotificationType_BestLap = 1;
+    UINotificationType_Xp_Reward = 2;
+    UINotificationType_Credits_Reward = 3;
+    UINotificationType_Debug = 4;
+    UINotificationType_SessionPenalty = 5;
+    UINotificationType_ConnectionStatus = 6;
+    UINotificationType_TyreWear = 7;
+    UINotificationType_Rental_Done = 8;
+    UINotificationType_Gameplay_Info = 9;
+    UINotificationType_CarSettings = 10;
+    UINotificationType_Clear = 11;
+}
+
+enum UINotificationValueType {
+    UINotificationValueType_Integer = 0;
+    UINotificationValueType_String = 1;
+    UINotificationValueType_StringKey = 2;
+    UINotificationValueType_Time = 3;
+    UINotificationValueType_Delta = 4;
+}

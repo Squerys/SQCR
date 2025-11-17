@@ -1,0 +1,235 @@
+syntax = "proto3";
+
+import "GameplayUI.proto";
+import "LogicScene.proto";
+import "GameEconomyClientCommands.proto";
+import "GameModeSelectionClientCommands.proto";
+import "ClientCommandsUtil.proto";
+import "Customization.proto";
+import "DriverManager.proto";
+import "Gameplay.proto";
+
+message BackendNotification {
+    PGUID driver_guid = 1;
+    repeated UINotification notification = 2;
+    string reward_key = 3;
+}
+
+message BackendNotifications {
+    repeated BackendNotification notifications = 1;
+}
+
+message BackendRetrieveUserRequest {
+    string steam_id = 1;
+}
+
+message BackendRetrieveUserResponse {
+    DriverProgressionData driver_progression_data = 1;
+    DriverGarageData driver_garage_data = 2;
+    DriverPersonalData driver_personal_data = 3;
+    DriverLicenseData driver_license_data = 4;
+    ClientCommandsResponse response = 5;
+}
+
+message BackendCar {
+    string car_guid = 1;
+    string car_path = 2;
+    string car_design = 3;
+    int32 purchase_offer_percent = 23;
+    int32 price = 5;
+    int32 rental_offer_percent = 33;
+    int32 rental_price = 30;
+    bool is_enabled = 40;
+    LicenseType required_license = 41;
+    float performance_indicator = 42;
+}
+
+message BackendRequestManufacturers {
+    CarSelectionOwnerShipState state = 1;
+    PGUID driver_pguid = 100;
+    
+    reserved 2;
+}
+
+message BackendResponseManufacturers {
+    ClientCommandsResponse response = 1;
+    CarSelectionOwnerShipState state = 2;
+    repeated CarManufacturer manufacturers = 10;
+}
+
+message BackendRequestCars {
+    CarSelectionOwnerShipState state = 1;
+    PGUID driver_pguid = 100;
+    
+    reserved 2;
+}
+
+message BackendResponseCars {
+    ClientCommandsResponse response = 1;
+    CarSelectionOwnerShipState state = 2;
+    repeated BackendCar cars = 10;
+}
+
+message BackendRequestBuyCar {
+    PGUID driver_pguid = 100;
+    CarFinalStateData final_state = 2;
+    Consumable_Body consumable_body = 200;
+    Consumable_Generic consumable_rim = 201;
+    repeated Consumable_Generic consumable_oem_parts = 203;
+    repeated Consumable_Generic consumable_parts = 204;
+    
+    reserved 1;
+}
+
+message BackendResponseBuyCar {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateWithConsumable full_final_state = 2;
+    int32 total_car_expense = 3;
+    PGUID driver_pguid = 100;
+}
+
+message BackendRequestRentCar {
+    PGUID driver_pguid = 100;
+    CarFinalStateData final_state = 2;
+    Consumable_Body consumable_body = 200;
+    Consumable_Generic consumable_rim = 201;
+    repeated Consumable_Generic consumable_oem_parts = 203;
+    repeated Consumable_Generic consumable_parts = 204;
+    
+    reserved 1;
+}
+
+message BackendResponseRentCar {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateWithConsumable full_final_state = 2;
+    int32 total_car_expense = 3;
+    PGUID driver_pguid = 100;
+}
+
+message BackendRequestUpdateCar {
+    PGUID driver_pguid = 100;
+    CarFinalStateWithConsumable full_final_state = 2;
+    
+    reserved 1;
+}
+
+message BackendResponseUpdateCar {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateWithConsumable full_final_state = 2;
+}
+
+message BackendGameModeSpecialEvent {
+    string event_guid = 1;
+    GameModeType type = 2;
+    GameModeSelectionSession session_details = 3;
+    CarFinalStateData car_final_state = 4;
+    TrackItem track_item = 5;
+    GameModeSelectionWeatherType weather_preset = 6;
+    InitialGrip initial_grip = 7;
+    string img_path = 8;
+    SpecialEventStatus status = 12;
+    uint32 player_position = 29;
+    uint32 player_count = 30;
+    uint32 golden_time = 20;
+    uint32 silver_time = 21;
+    uint32 bronze_time = 22;
+    uint32 event_index = 23;
+    uint32 global_best_time = 24;
+    uint32 driver_best_time = 25;
+    uint32 driver_attempts = 28;
+    repeated uint32 reward_money = 26;
+    repeated uint32 reward_xp = 27;
+}
+
+message BackendGameModeSpecialEventCategory {
+    string name = 1;
+    LicenseType license_type = 2;
+    LicenseType license_requested = 3;
+    repeated BackendGameModeSpecialEvent special_events = 10;
+}
+
+message BackendResultRow {
+    int32 position = 1;
+    string driver = 2;
+    int32 time = 3;
+    int32 total_laps = 4;
+}
+
+message BackendRequestSpecialEvents {
+    ClientCommandsMode mode = 2;
+    PGUID driver_pguid = 10;
+}
+
+message BackendResponseSpecialEvents {
+    ClientCommandsResponse response = 1;
+    ClientCommandsMode mode = 2;
+    repeated BackendGameModeSpecialEventCategory categories = 10;
+}
+
+message BackendRequestSpecialEventResults {
+    ClientCommandsMode mode = 1;
+    PGUID driver_pguid = 2;
+    string event_guid = 3;
+    int32 num_results = 4;
+}
+
+message BackendResponseSpecialEventResults {
+    ClientCommandsResponse response = 1;
+    ClientCommandsMode mode = 2;
+    repeated BackendResultRow rows = 3;
+    BackendResultRow driver_row = 4;
+}
+
+message BackendErrorMessage {
+    GameEconomyClientCommandsResponse error = 1;
+}
+
+message EndSessionDriverStatsRow {
+    string key = 1;
+    uint32 reward = 2;
+    EndSessionDriverStatsRowType reward_type = 3;
+    uint32 multiplier = 4;
+}
+
+message EndSessionDriverStats {
+    repeated EndSessionDriverStatsRow rows = 1;
+    EndSessionXpRankWallet total_stats = 2;
+    uint32 time_to_hide = 3;
+}
+
+message EndSessionXpRankWallet {
+    uint32 total_xp = 1;
+    uint32 wallet = 2;
+    uint32 rank = 3;
+    bool is_new_rank = 4;
+    uint32 earned_xp = 5;
+    uint32 earned_credits = 6;
+    uint32 total_costs = 7;
+}
+
+message BackendRequestEndSessionDriverStats {
+    PGUID driver_pguid = 1;
+    BackendRequestEndSessionType type = 2;
+}
+
+message BackendResponseEndSessionDriverStats {
+    ClientCommandsResponse response = 1;
+    BackendRequestEndSessionType type = 2;
+    EndSessionDriverStats stats = 10;
+}
+
+enum EndSessionDriverStatsRowType {
+    EndSessionDriverStatsRow_XP = 0;
+    EndSessionDriverStatsRow_Credits = 1;
+    EndSessionDriverStatsRow_Distance = 2;
+    EndSessionDriverStatsRow_Consumed_Fuel = 3;
+    EndSessionDriverStatsRow_License_Medal = 4;
+    EndSessionDriverStatsRow_Consumed_Tyre = 5;
+    EndSessionDriverStatsRow_Consumed_Energy = 6;
+    EndSessionDriverStatsRow_Final_Position = 7;
+}
+
+enum BackendRequestEndSessionType {
+    BackendRequestEndSessionType_Default = 0;
+    BackendRequestEndSessionType_Grouped = 1;
+}

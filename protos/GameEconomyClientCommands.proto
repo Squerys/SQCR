@@ -1,0 +1,392 @@
+syntax = "proto3";
+
+import "Customization.proto";
+import "BackendMessage.proto";
+import "GameEconomy.proto";
+import "LogicScene.proto";
+import "DriverManager.proto";
+
+message GameEconomyClientBuyCarItem {
+    string path = 1;
+    int32 price = 2;
+    int32 sale_percentage = 3;
+}
+
+message GameEconomyClientBuyCarPart {
+    GameEconomyClientBuyCarItem path = 1;
+    GameEconomyClientBuyCarItem design = 2;
+    repeated MultilayerMaterialCustomizationState multilayers = 20;
+    repeated MultilayerMaterialCustomizationState singlelayers = 21;
+}
+
+message GameEconomyClientShoppableItemListItem {
+    string file_path = 1;
+    int32 base_price = 10;
+    int32 sale_percentage = 11;
+}
+
+message GameEconomyDebug {
+    PGUID account_pguid = 300;
+    string account_id = 100;
+    DriverProfileData driver_data = 101;
+    DriverPersonalData current_driver_personal_data = 102;
+    DriverProgressionData current_driver_progression_data = 103;
+    DriverGarageData current_driver_garage_data = 104;
+    DriverLicenseData current_driver_license_data = 105;
+    GameEconomyClientResponseOwnedCars owned_cars_ids = 200;
+    repeated CarModel shoppable_cars = 201;
+    repeated CarFinalStateData owned_cars = 202;
+    GameEconomyClientResponseShoppablePartList shoppable_parts = 203;
+    GameEconomyClientResponseShoppableRimList shoppable_rims = 204;
+    CarFinalStateData current_owned_car = 205;
+    int32 current_xp_points = 2;
+    DriverXpHistory xp_history = 3;
+    int32 current_credits = 5;
+    PGUID current_car_pguid = 301;
+    string current_car_name = 12;
+    
+    reserved 11;
+    
+    message NamePrice {
+        string name = 1;
+        int32 price = 2;
+        string body_guid = 3;
+    }
+}
+
+message GameEconomyClientRequestAddRemoveMoney {
+    PGUID driver_pguid = 100;
+    int32 delta_money = 2;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseAddRemoveMoney {
+    GameEconomyClientCommandsResponse response = 1;
+    PGUID driver_pguid = 100;
+    DriverProgressionData current_driver_progression_data = 3;
+    
+    reserved 2;
+}
+
+message GameEconomyClientRequestAccount {
+    string steam_id = 7;
+    string psn_id = 8;
+    string xbox_id = 6;
+}
+
+message GameEconomyClientResponseAccount {
+    BackendResponse response = 1;
+    string account_id = 2;
+    PGUID account_pguid = 100;
+    DriverProfileData driver_data = 3;
+    DriverPersonalData current_driver_personal_data = 4;
+    DriverProgressionData current_driver_progression_data = 5;
+    bool is_new = 6;
+}
+
+message GameEconomyClientRequestUserProfileInit {
+    bool im_empty = 1;
+}
+
+message GameEconomyClientResponseUserProfileInit {
+    DriverProfileData driver_data = 1;
+    BackendResponse response = 2;
+}
+
+message GameEconomyClientRequestDriver {
+    PGUID driver_pguid = 100;
+    bool is_startup = 2;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseDriver {
+    BackendResponse response = 1;
+    PGUID driver_pguid = 100;
+    DriverProgressionData progression_data = 9;
+    DriverPersonalData personal_data = 10;
+    DriverGarageData garage_data = 11;
+    DriverLicenseData license_data = 12;
+    
+    reserved 3;
+}
+
+message GameEconomyClientRequestDriverPersonalData {
+    PGUID driver_pguid = 100;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseDriverPersonalData {
+    BackendResponse response = 1;
+    PGUID driver_pguid = 100;
+    DriverPersonalData personal_data = 3;
+    
+    reserved 2;
+}
+
+message GameEconomyClientRequestUpdateDriverPersonalData {
+    PGUID driver_pguid = 100;
+    DriverPersonalData personal_data = 1;
+    
+    reserved 2;
+}
+
+message GameEconomyClientResponseUpdateDriverPersonalData {
+    BackendResponse response = 1;
+    PGUID driver_pguid = 100;
+    DriverPersonalData personal_data = 3;
+    bool is_new = 4;
+    
+    reserved 2;
+}
+
+message GameEconomyClientRequestDriverProgressionData {
+    PGUID driver_pguid = 100;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseDriverProgressionData {
+    BackendResponse response = 1;
+    PGUID driver_pguid = 100;
+    DriverProgressionData progression_data = 3;
+    DriverLicenseData license_data = 4;
+    
+    reserved 2;
+}
+
+message GameEconomyClientRequestOwnedCars {
+    PGUID driver_pguid = 100;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseOwnedCars {
+    GameEconomyClientCommandsResponse response = 1;
+    repeated PGUID car_pguid = 100;
+    PGUID selected_car_pguid = 101;
+    
+    reserved 2, 3;
+}
+
+message GameEconomyClientRequestOwnedCar {
+    PGUID driver_pguid = 100;
+    PGUID car_pguid = 101;
+    
+    reserved 1, 2;
+}
+
+message GameEconomyClientResponseOwnedCar {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateWithConsumable final_state_with_consumable = 2;
+}
+
+message GameEconomyClientRequestUpdateOwnedCar {
+    PGUID driver_pguid = 100;
+    CarFinalStateData final_state = 3;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseUpdateOwnedCar {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateData final_state = 2;
+}
+
+message GameEconomyClientRequestFinalStates {
+    PGUID driver_pguid = 100;
+    repeated string key = 2;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseFinalStates {
+    GameEconomyClientCommandsResponse response = 1;
+    repeated CarFinalStates states = 2;
+}
+
+message GameEconomyClientRequestBuyCar {
+    CarModel model = 1;
+}
+
+message GameEconomyClientResponseBuyCar {
+    GameEconomyClientCommandsResponse response = 1;
+    PGUID driver_pguid = 2;
+}
+
+message GameEconomyClientRequestRemoveCar {
+    PGUID car_pguid = 1;
+}
+
+message GameEconomyClientResponseRemoveCar {
+    GameEconomyClientCommandsResponse response = 1;
+}
+
+message GameEconomyClientRequestRentCar {
+    CarModel model = 1;
+}
+
+message GameEconomyClientResponseRentCar {
+    GameEconomyClientCommandsResponse response = 1;
+    PGUID driver_pguid = 2;
+}
+
+message GameEconomyClientRequestSelectCar {
+    PGUID driver_pguid = 100;
+    PGUID car_pguid = 101;
+    
+    reserved 1, 2;
+}
+
+message GameEconomyClientResponseSelectCar {
+    GameEconomyClientCommandsResponse response = 1;
+    PGUID car_pguid = 101;
+    
+    reserved 2;
+}
+
+message GameEconomyClientRequestBuyShoppable {
+    PGUID driver_pguid = 100;
+    CarFinalStateData final_state = 2;
+    GameEconomyClientBuyCarPart body = 3;
+    GameEconomyClientBuyCarPart rims = 5;
+    repeated GameEconomyClientBuyCarPart parts = 7;
+    
+    reserved 1;
+}
+
+message GameEconomyClientResponseBuyShoppable {
+    GameEconomyClientCommandsResponse response = 1;
+    CarFinalStateData final_state = 2;
+}
+
+message GameEconomyClientRequestShoppableCarList {
+    repeated string file_paths = 1;
+}
+
+message GameEconomyClientResponseShoppableCarList {
+    GameEconomyClientCommandsResponse response = 1;
+    repeated GameEconomyClientShoppableItemListItem items = 2;
+}
+
+message GameEconomyClientRequestShoppablePartList {
+    repeated string file_paths = 1;
+    string car_file_path = 2;
+    string mechanical_file_path = 3;
+}
+
+message GameEconomyClientResponseShoppablePartList {
+    GameEconomyClientCommandsResponse response = 1;
+    repeated GameEconomyClientShoppableItemListItem items = 2;
+}
+
+message GameEconomyClientRequestShoppableRimList {
+    repeated string file_paths = 1;
+    string car_file_path = 2;
+    string mechanical_file_path = 3;
+}
+
+message GameEconomyClientResponseShoppableRimList {
+    GameEconomyClientCommandsResponse response = 1;
+    repeated GameEconomyClientShoppableItemListItem items = 2;
+}
+
+message GameEconomyClientRequestUpdateFinalStates {
+    
+}
+
+message GameEconomyClientResponseUpdateFinalStates {
+    GameEconomyClientCommandsResponse response = 1;
+}
+
+message GameEconomyClientRequestPlayerMode {
+    bool is_sandbox = 1;
+}
+
+message GameEconomyClientResponsePlayerMode {
+    bool new_is_sandbox = 1;
+    bool is_new_career = 2;
+}
+
+message GameEconomyClientRequestPersonalSettings {
+    bool im_empty = 1;
+}
+
+message GameEconomyClientResponsePersonalSettings {
+    PersonalSettings personal_settings = 1;
+}
+
+message GameEconomyClientRequestSetPersonalSettings {
+    PersonalSettings personal_settings = 1;
+}
+
+message GameEconomyClientResponseSetPersonalSettings {
+    PersonalSettings personal_settings = 1;
+}
+
+message GameEconomyClientCommands {
+    GameEconomyClientRequestAddRemoveMoney request_add_remove_money = 1;
+    GameEconomyClientResponseAddRemoveMoney response_add_remove_money = 1000;
+    GameEconomyClientRequestAccount request_account = 2;
+    GameEconomyClientResponseAccount response_account = 1001;
+    GameEconomyClientRequestUserProfileInit request_user_profile_init = 3;
+    GameEconomyClientResponseUserProfileInit response_user_profile_init = 1002;
+    GameEconomyClientRequestDriver request_driver = 4;
+    GameEconomyClientResponseDriver response_driver = 1003;
+    GameEconomyClientRequestDriverPersonalData request_driver_personal_data = 5;
+    GameEconomyClientResponseDriverPersonalData response_driver_personal_data = 1004;
+    GameEconomyClientRequestUpdateDriverPersonalData request_update_driver_personal_data = 6;
+    GameEconomyClientResponseUpdateDriverPersonalData response_update_driver_personal_data = 1005;
+    GameEconomyClientRequestDriverProgressionData request_driver_progression_data = 7;
+    GameEconomyClientResponseDriverProgressionData response_driver_progression_data = 1006;
+    GameEconomyClientRequestOwnedCars request_owned_cars = 8;
+    GameEconomyClientResponseOwnedCars response_owned_cars = 1007;
+    GameEconomyClientRequestOwnedCar request_owned_car = 9;
+    GameEconomyClientResponseOwnedCar response_owned_car = 1008;
+    GameEconomyClientRequestUpdateOwnedCar request_update_owned_car = 10;
+    GameEconomyClientResponseUpdateOwnedCar response_update_owned_car = 1009;
+    GameEconomyClientRequestFinalStates request_final_states = 11;
+    GameEconomyClientResponseFinalStates response_final_states = 1010;
+    GameEconomyClientRequestBuyCar request_buy_car = 12;
+    GameEconomyClientRequestRentCar request_rent_car = 13;
+    GameEconomyClientResponseRentCar response_rent_car = 1011;
+    GameEconomyClientResponseBuyCar response_buy_car = 1012;
+    GameEconomyClientRequestSelectCar request_select_car = 14;
+    GameEconomyClientResponseSelectCar response_select_car = 1013;
+    GameEconomyClientRequestBuyShoppable request_buy_shoppable = 15;
+    GameEconomyClientResponseBuyShoppable response_buy_shoppable = 1014;
+    GameEconomyClientRequestShoppableCarList request_shoppable_car_list = 16;
+    GameEconomyClientResponseShoppableCarList response_shoppable_car_list = 1015;
+    GameEconomyClientRequestShoppablePartList request_shoppable_part_list = 17;
+    GameEconomyClientResponseShoppablePartList response_shoppable_part_list = 1016;
+    GameEconomyClientRequestShoppableRimList request_shoppable_rim_list = 18;
+    GameEconomyClientResponseShoppableRimList response_shoppable_rim_list = 1017;
+    GameEconomyClientRequestUpdateFinalStates request_update_final_states = 19;
+    GameEconomyClientResponseUpdateFinalStates response_update_final_states = 1018;
+    GameEconomyClientRequestPlayerMode request_player_mode = 20;
+    GameEconomyClientResponsePlayerMode response_player_mode = 1019;
+    GameEconomyClientRequestPersonalSettings request_personal_settings = 21;
+    GameEconomyClientResponsePersonalSettings response_personal_settings = 1020;
+    GameEconomyClientRequestSetPersonalSettings request_set_personal_settings = 22;
+    GameEconomyClientResponseSetPersonalSettings response_set_personal_settings = 1021;
+    GameEconomyClientRequestRemoveCar request_remove_car = 23;
+    GameEconomyClientResponseRemoveCar response_remove_car = 1022;
+}
+
+enum GameEconomyClientCommandsResponse {
+    GameEconomyClientCommandsResponse_OK = 0;
+    GameEconomyClientCommandsResponse_NO_AVAILABLE_CARS = 1;
+    GameEconomyClientCommandsResponse_NO_MECHANICAL_PRESET = 2;
+    GameEconomyClientCommandsResponse_NO_VISUAL_PRESET = 3;
+    GameEconomyClientCommandsResponse_NO_MONEY = 4;
+    GameEconomyClientCommandsResponse_DIFFERENT_MONEY = 5;
+    GameEconomyClientCommandsResponse_NO_AVAILABLE_PARTS = 6;
+    GameEconomyClientCommandsResponse_CAR_NOT_AVAILABLE = 7;
+    GameEconomyClientCommandsResponse_NO_REQUIRED_LICENSE = 8;
+    GameEconomyClientCommandsResponse_BACKEND_DISCONNECTED = 97;
+    GameEconomyClientCommandsResponse_DATABASE_DISCONNECTED = 98;
+    GameEconomyClientCommandsResponse_IS_READONLY = 99;
+    GameEconomyClientCommandsResponse_CRITICAL_ERROR = 100;
+}

@@ -1,0 +1,178 @@
+
+PlatformUiTypes.protoCarData.protoCarDataCache.proto
+Math.protoOptions.protoCarBehaviour.protoPenaltySystem.protoLogicScene.protoGameplay.proto"ù
+UITyreState
+slip (
+lock (
+tyre_pression (
+tyre_temperature_c (
+brake_temperature_c (
+brake_pressure (
+tyre_temperature_left (
+tyre_temperature_center (
+tyre_temperature_right	 (
+tyre_compound_front
+ (	
+tyre_compound_rear (	 
+tyre_normalized_pressure ((
+ tyre_normalized_temperature_left (*
+"tyre_normalized_temperature_center ()
+!tyre_normalized_temperature_right ($
+brake_normalized_temperature ((
+ tyre_normalized_temperature_core ("J
+UIFlagState
+flag (2.UIFlagType 
+global_flag (2.UIFlagType"∑
+UICurrentCarStateLowFrequency*
+electronics (2.CarElectronicsValues2
+instrumentation (2.CarInstrumentationValues
+display_htmls
+ (	4
+electronics_min_limit (2.CarElectronicsValues4
+electronics_max_limit (2.CarElectronicsValues8
+electronics_is_modifiable (2.CarElectronicsValues
+total_lap_count (
+current_pos (
+total_drivers (
+last_laptime_ms (
+best_laptime_ms	 (
+flags< (2.UIFlagState
+	max_gears (+
+engine_type (2.EngineData.EngineType
+has_kers (
+is_last_lap ("¸
+UICurrentCarState
+focused_car_idË (	
+player_car_idÈ (	
+has_focused_car (
+is_player_car (
+rpm (
+rpm_percent (
+speed (
+is_rpm_limiter_onQ (
+is_change_up_rpmR (
+is_change_down_rpmS (
+display_speed_kmh (
+display_speed_mph (
+display_speed_ms (
+pitspeeding_deltaT (
+gear (	
+	tc_active	 (
+
+abs_active
+ (
+
+esc_active (
+gear_int (
+launch_active (
+is_ignition_on (
+is_engine_running (
+gas_percent (
+brake_percent (
+handbrake_percentN (
+clutch_percentO (
+steering_percentP (
+ffb_strength{ (
+car_ffb_mupliplierÅ (
+water_temperature_c (!
+water_temperature_percent (
+air_temperature_c (
+water_pressure} (
+oil_temperature~ (
+oil_pressure (
+fuel_pressure_barÄ (
+g_forces (2.Vector3Data
+exhaust_temperature_c  (
+turbo_boost! (
+turbo_boost_level' (
+turbo_boost_perc+ (
+steer_degrees" (
+
+current_km( (
+total_km# (
+total_driving_time_s) (
+time_of_day_hours$ (
+time_of_day_minutes% (
+time_of_day_seconds& (
+delta_time_ms3 (
+current_lap_time_ms4 (
+predicted_lap_time_ms5 (#
+fuel_liter_current_quantityF (+
+#fuel_liter_current_quantity_percentG (
+fuel_liter_per_kmL (
+km_per_fuel_literM (
+current_torqueW (
+current_bhpX (
+tyre_lfd (2.UITyreState
+tyre_rfe (2.UITyreState
+tyre_lrf (2.UITyreState
+tyre_rrg (2.UITyreState
+kers_charge_perc* (
+kers_input_active- (
+kers_current_perc, (
+control_lock_time2 (
+is_wrong_way6 ("
+
+car_damageo (2.UIDamageState(
+car_location… (2.CarLocation.Type6
+low_frequency» (2.UICurrentCarStateLowFrequency
+pit_info¨ (2
+.UIPitInfo
+fuel_liter_usedZ (
+fuel_liter_per_lap[ (
+laps_possible_with_fuel\ (
+battery_temperature] (
+battery_is_charging^ (
+battery_voltage| ("Ù
+UIDamageState
+damage_front (
+damage_rear (
+damage_left (
+damage_right (
+damage_center (
+damage_suspension_lf (
+damage_suspension_rf (
+damage_suspension_lr (
+damage_suspension_rr	 ("i
+OpponentUIData
+relative_dist_x (
+relative_dist_y (
+opacity (
+car_id (	J"Q
+WarningUISign
+
+is_visible (
+color (2.Vector4Data
+opacity ("ÿ
+UIRadarState'
+opponents_data (2.OpponentUIData
+max_opponent_opacity (!
+	left_sign (2.WarningUISign"
+
+right_sign (2.WarningUISign
+
+is_visible (
+opponents_num (
+opacity ("á
+	UIPitInfo
+time_in_pits (
+damage (
+fuel (
+tyres_lf (
+tyres_rf (
+tyres_lr (
+tyres_rr ("û
+UISpecialEventState
+event_id (	
+golden_time (	
+silver_time (	
+bronze_time (	
+my_time (	
+my_medal	 (
+my_attempts
+ ("°
+UIInitialWeather
+ambient_temperature_c (
+ground_temperature_c (
+is_static_weather (5
+weather_preset (2.GameModeSelectionWeatherType

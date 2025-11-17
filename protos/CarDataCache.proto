@@ -1,0 +1,130 @@
+syntax = "proto3";
+
+import "LogicScene.proto";
+import "Options.proto";
+
+message PhysicsCarDataCacheIntSetting {
+    int32 current_value = 1;
+    int32 min_value = 2;
+    int32 max_value = 3;
+}
+
+message PhysicsCarDataCacheFloatSetting {
+    float current_value = 1;
+    float min_value = 2;
+    float max_value = 3;
+}
+
+message CarInstrumentationValues {
+    int32 main_light_stage = 1;
+    int32 special_light_stage = 2;
+    int32 cockpit_light_stage = 3;
+    int32 wiper_level = 4;
+    bool rain_lights = 5;
+    bool direction_light_left = 6;
+    bool direction_light_right = 7;
+    bool flashing_lights = 8;
+    bool warning_lights = 9;
+    int32 selected_display_index = 10;
+    
+    repeated DisplayIndex display_indexes = 11;
+    message DisplayIndex {
+        int32 current_page_index = 1;
+    }
+    
+    bool are_headlights_visible = 12;
+}
+
+message CarElectronicsValues {
+    int32 tc_level = 1;
+    int32 tc_cut_level = 2;
+    int32 abs_level = 3;
+    int32 esc_level = 8;
+    float brake_bias = 4;
+    int32 engine_map_level = 5;
+    bool is_ignition_on = 9;
+    bool is_pitlimiter_on = 10;
+    int32 active_performance_mode = 11;
+    
+    reserved 7;
+}
+
+message CarAssistsValues {
+    int32 auto_gear = 7;
+    int32 auto_blip = 8;
+    float auto_steer = 9;
+    int32 auto_clutch = 10;
+    int32 auto_clutch_on_start = 11;
+    float arcade_stability_control = 13;
+    int32 manual_ignition_e_start = 14;
+    int32 auto_pit_limiter = 15;
+    int32 standing_start_assist = 12;
+}
+
+message CarElectronicsChangeEvent {
+    PGUID car_id = 1;
+    CarElectronicsValues values = 2;
+}
+
+message CarElectronicsChangedEvent {
+    PGUID car_id = 1;
+    CarElectronicsValues values = 2;
+}
+
+message CarAssistsChangeEvent {
+    PGUID car_id = 1;
+    CarAssistsValues values = 2;
+}
+
+message CarDistanceHandleEvent {
+    PGUID car_id = 1;
+    float partial_distance = 2;
+    float odo_distance = 3;
+    bool enable_distance_counter = 4;
+}
+
+message PhysicsOptimalRange {
+    float min_value = 1;
+    float opt_min_value = 2;
+    float opt_max_value = 3;
+    float max_value = 4;
+}
+
+message CarTyresRuntimeSettings {
+    PGUID car_id = 1;
+    int32 update_count = 100;
+    PhysicsCarDataCacheIntSetting front_compound = 2;
+    PhysicsCarDataCacheIntSetting rear_compound = 3;
+    repeated PhysicsCarDataCacheFloatSetting pressures = 4;
+    bool change_tyres = 5;
+    repeated string front_compounds = 6;
+    repeated string rear_compounds = 7;
+    repeated int32 front_compounds_type = 14;
+    repeated int32 rear_compounds_type = 15;
+    repeated float front_treads_mm = 16;
+    repeated float rear_treads_mm = 17;
+    repeated PhysicsOptimalRange front_temperature_range = 8;
+    repeated PhysicsOptimalRange rear_temperature_range = 9;
+    repeated PhysicsOptimalRange front_core_temperature_range = 18;
+    repeated PhysicsOptimalRange rear_core_temperature_range = 19;
+    repeated PhysicsOptimalRange front_pressure_range = 10;
+    repeated PhysicsOptimalRange rear_pressure_range = 11;
+    repeated PhysicsOptimalRange front_brake_temperature_range = 12;
+    repeated PhysicsOptimalRange rear_brake_temperature_range = 13;
+}
+
+message CarRuntimeSettings {
+    CarElectronicsValues electronics_values = 1;
+    CarAssistsValues assists_values = 2;
+    CarTyresRuntimeSettings tyres_settings = 3;
+    CarInstrumentationValues instrumentation_values = 4;
+}
+
+message FakeCarPhysicsState {
+    PGUID car_id = 100;
+    bool is_engine_running = 2;
+    uint32 speed_kmh = 3;
+    bool is_reverse_gear = 5;
+    bool is_braking = 6;
+    int32 steering_angle = 7;
+}

@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+
+enum InputChannel {
+    None = 0;
+    Client = 1;
+    Core = 2;
+    Both = 4;
+}
+
+enum StringSubtype {
+    StringSubtype_FilesystemPath = 0;
+    StringSubtype_ContentPath = 1;
+}
+
+enum VectorSubtype {
+    VectorSubtype_Color = 0;
+    VectorSubtype_ColorHdr = 1;
+}
+
+enum NumericWidgetType {
+    NumericWidgetType_Drag = 0;
+    NumericWidgetType_Slider = 1;
+}
+
+enum TemplateFieldType {
+    TemplateFieldType_source = 0;
+    TemplateFieldType_name = 1;
+    TemplateFieldType_data = 2;
+}
+
+extend google.protobuf.FieldOptions {
+    StringSubtype stringSubtype = 50000;
+    bool hideInEditor = 50001;
+    VectorSubtype vectorSubtype = 50002;
+    uint32 icon = 50005;
+    string pathExtension = 50006;
+    bool explicitCreate = 50007;
+    bool readOnly = 50009;
+    bool fixedSize = 50010;
+    float limit_min = 50011;
+    float limit_max = 50012;
+    float precision = 50013;
+    string tooltip = 50014;
+    string format = 50015;
+    NumericWidgetType numeric_widget_type = 50016;
+    bool open_as_default = 50017;
+    bool isNullable = 50018;
+    string autoTag = 50019;
+    bool globalPrecision = 50020;
+    int32 description_field_number = 50021;
+    bool use_zero_based_index = 50022;
+    int32 multiline_lines_count = 50023;
+    bool use_backend = 50024;
+    bool is_table_key = 50025;
+}
