@@ -85,7 +85,6 @@ You could theoratically already add servers to the list by intercepting the serv
 I suck at developping and reverse engineering, if you got some skills, no matter what your level is, any help is appreciated.
 
 TODO :
-POC Server list editing
-Capturing traffic when joining, playing and leaving official servers
-Completely understand used data structures
-Implement a custom server binary based the previous data.
+ * Capturing traffic when joining, playing and leaving official servers
+ * Completely understand used data structures
+ * Implement a custom server binary based the previous data.
