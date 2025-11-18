@@ -47,4 +47,3 @@ class JoinDumper:
             ctx.log.alert(f"[SQCR] Capturé : {filename}")
 
 addons = [JoinDumper()]
-
