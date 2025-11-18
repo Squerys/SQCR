@@ -81,10 +81,12 @@ This response contains a repeated list of Server Objects. We have decoded the fo
 
 Contributing: Decoding the Schema
 
-You could theoratically already add servers to the list by intercepting the server's list response, editing it and replaying it to the client
+You can now use proxy.py to capture the traffic while you're playing an official server and proto.py to display the architecture of any protobuff object
+dummmy.py is fully functionnal (at least i think) and returns what gameserver.py is actually hosting
+
+When all will be implemented and understood correctly it'd be better to rewrite it in a more suitablle language such as c,c++, rust or golang.
+
 I suck at developping and reverse engineering, if you got some skills, no matter what your level is, any help is appreciated.
 
 TODO :
- * Capturing traffic when joining, playing and leaving official servers
- * Completely understand used data structures
  * Implement a custom server binary based the previous data.
