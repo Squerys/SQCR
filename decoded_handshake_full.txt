@@ -1,0 +1,721 @@
+handshake_result: ConnectToServerResult_Success
+request_data {
+  password_type: ClientConnectionRequestPasswordType_Driver
+  protocol_version: 4
+  server_version: 2
+}
+connection_id: 81
+gamemode_changed_event {
+  season {
+    name: "GarzonRacing.es - GT3 at SPA "
+    event_map {
+      key: 0
+      value {
+        name: "Race Weekend"
+        session_map {
+          key: 0
+          value {
+            name: "Practice"
+            scene {
+              track_content_data {
+                name: "Circuit de Spa Francorchamps"
+                folder_path: "content\\tracks\\spa"
+                file_path: "content\\tracks\\spa\\spa_francorchamps.scene"
+                nation: "BE"
+                coordinates {
+                  longitude: 5.971
+                  latitude: 50.345
+                }
+                timezone: TimeZone_Belgium
+                track_data_path: "content\\tracks\\spa\\dynamic_track\\spa.track"
+                is_release: true
+                continent: "Europe"
+              }
+              physics_type: ScenePhysicsType_Realtime
+              spawn {
+                position {
+                }
+                rotation {
+                }
+                scale {
+                  x: 1
+                  y: 1
+                  z: 1
+                }
+              }
+              containers: "content\\tracks\\spa\\containers\\camera_sequence_practice.scene"
+              containers: "content\\tracks\\spa\\containers\\layout_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\marshalls_dlp.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_race.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_zones_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\spawnpoints_pitlane.scene"
+              containers: "content\\tracks\\spa\\containers\\timelines.scene"
+              containers: "content\\tracks\\spa\\containers\\tv1_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\tv2_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\vr_cameras.scene"
+              event_name: "GP Time Attack"
+              layout_image {
+                margin: 10
+                min_x: -1465.85
+                min_y: -2224.94
+                k_multiplier: 2224.94
+              }
+            }
+            specialization {
+              type_url: "type.googleapis.com/TimeAttack.Specialization"
+              value: "\252\001\022\252\006\017\010\t\020\002\"\005\010\t\020\220N(\001:\000\262\001Z\n\n\242\001\002\010\003\242\006\002\n\000\n#\362\001\017\r\000\000\000@\025\315\314\314=\035\000\000\000@\242\006\004\n\000\020\036\242\006\007\n\003\010\372\001\020d\n\'\022\007pitlane\262\002\004\010<\020\001\242\006\007\n\003\020\220N\020>\242\006\n\n\006\010\204\002\020\220N\020F\272\001\003EA1\302\001\003EA1\302\014\020\030\200\335\333\001(\0010\230u8\001P\260\352\001"
+            }
+            weather {
+              initial_date_time {
+                year: 2024
+                month: 8
+                day: 15
+                hour: 12
+              }
+              time_multiplier: 1
+              recalc_interval_seconds: 10
+              spatial_noise_data {
+                scale: 1
+                frequency: 0.0004
+                amplitude: 1.02
+                order: 17
+                seed {
+                  x: 2.81
+                  y: 4.47
+                }
+              }
+              static_data {
+                static_weather {
+                  now {
+                  }
+                  sun_position {
+                  }
+                  moon_position {
+                  }
+                  ambient_temperature_c: 23.3815117
+                }
+              }
+            }
+            dynamic_track_condition {
+              initial_grip: 0.96
+              rubber: 0.2
+              marbles: 0.12
+            }
+            crowd_density: 0.12
+          }
+        }
+        session_map {
+          key: 1
+          value {
+            name: "Qualifying"
+            starting_sequence {
+              session_index_ref: 0
+              best {
+              }
+            }
+            scene {
+              track_content_data {
+                name: "Circuit de Spa Francorchamps"
+                folder_path: "content\\tracks\\spa"
+                file_path: "content\\tracks\\spa\\spa_francorchamps.scene"
+                nation: "BE"
+                coordinates {
+                  longitude: 5.971
+                  latitude: 50.345
+                }
+                timezone: TimeZone_Belgium
+                track_data_path: "content\\tracks\\spa\\dynamic_track\\spa.track"
+                is_release: true
+                continent: "Europe"
+              }
+              physics_type: ScenePhysicsType_Realtime
+              spawn {
+                position {
+                }
+                rotation {
+                }
+                scale {
+                  x: 1
+                  y: 1
+                  z: 1
+                }
+              }
+              containers: "content\\tracks\\spa\\containers\\camera_sequence_practice.scene"
+              containers: "content\\tracks\\spa\\containers\\layout_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\marshalls_dlp.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_race.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_zones_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\spawnpoints_pitlane.scene"
+              containers: "content\\tracks\\spa\\containers\\timelines.scene"
+              containers: "content\\tracks\\spa\\containers\\tv1_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\tv2_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\vr_cameras.scene"
+              event_name: "GP Time Attack"
+              layout_image {
+                margin: 10
+                min_x: -1465.85
+                min_y: -2224.94
+                k_multiplier: 2224.94
+              }
+            }
+            specialization {
+              type_url: "type.googleapis.com/TimeAttack.Specialization"
+              value: "\252\001\022\252\006\017\010\t\020\002\"\005\010\t\020\220N(\001:\000\262\001Z\n\n\242\001\002\010\003\242\006\002\n\000\n#\362\001\017\r\000\000\000@\025\315\314\314=\035\000\000\000@\242\006\004\n\000\020\036\242\006\007\n\003\010\372\001\020d\n\'\022\007pitlane\262\002\004\010<\020\001\242\006\007\n\003\020\220N\020>\242\006\n\n\006\010\204\002\020\220N\020F\272\001\003EA1\302\001\003EA1\302\014\017\030\200\371+(\0010\230u8\001P\260\352\001"
+            }
+            weather {
+              initial_date_time {
+                year: 2024
+                month: 8
+                day: 15
+                hour: 12
+              }
+              time_multiplier: 1
+              recalc_interval_seconds: 10
+              spatial_noise_data {
+                scale: 1
+                frequency: 0.0004
+                amplitude: 1.02
+                order: 17
+                seed {
+                  x: 2.81
+                  y: 4.47
+                }
+              }
+              static_data {
+                static_weather {
+                  now {
+                  }
+                  sun_position {
+                  }
+                  moon_position {
+                  }
+                  ambient_temperature_c: 23.3815117
+                }
+              }
+            }
+            dynamic_track_condition {
+              initial_grip: 0.96
+              rubber: 0.2
+              marbles: 0.12
+            }
+            crowd_density: 0.75
+          }
+        }
+        session_map {
+          key: 2
+          value {
+            name: "Warmup"
+            starting_sequence {
+              session_index_ref: 1
+              best {
+              }
+            }
+            scene {
+              track_content_data {
+                name: "Circuit de Spa Francorchamps"
+                folder_path: "content\\tracks\\spa"
+                file_path: "content\\tracks\\spa\\spa_francorchamps.scene"
+                nation: "BE"
+                coordinates {
+                  longitude: 5.971
+                  latitude: 50.345
+                }
+                timezone: TimeZone_Belgium
+                track_data_path: "content\\tracks\\spa\\dynamic_track\\spa.track"
+                is_release: true
+                continent: "Europe"
+              }
+              physics_type: ScenePhysicsType_Realtime
+              spawn {
+                position {
+                }
+                rotation {
+                }
+                scale {
+                  x: 1
+                  y: 1
+                  z: 1
+                }
+              }
+              containers: "content\\tracks\\spa\\containers\\camera_sequence_practice.scene"
+              containers: "content\\tracks\\spa\\containers\\layout_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\marshalls_dlp.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_race.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_zones_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\spawnpoints_pitlane.scene"
+              containers: "content\\tracks\\spa\\containers\\timelines.scene"
+              containers: "content\\tracks\\spa\\containers\\tv1_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\tv2_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\vr_cameras.scene"
+              event_name: "GP Time Attack"
+              layout_image {
+                margin: 10
+                min_x: -1465.85
+                min_y: -2224.94
+                k_multiplier: 2224.94
+              }
+            }
+            specialization {
+              type_url: "type.googleapis.com/TimeAttack.Specialization"
+              value: "\252\001\022\252\006\017\010\t\020\002\"\005\010\t\020\220N(\001:\000\262\001Z\n\n\242\001\002\010\003\242\006\002\n\000\n#\362\001\017\r\000\000\000@\025\315\314\314=\035\000\000\000@\242\006\004\n\000\020\036\242\006\007\n\003\010\372\001\020d\n\'\022\007pitlane\262\002\004\010<\020\001\242\006\007\n\003\020\220N\020>\242\006\n\n\006\010\204\002\020\220N\020F\272\001\003EA1\302\001\003EA1\302\014\017\030\300\317$(\0010\230u8\001P\260\352\001"
+            }
+            weather {
+              initial_date_time {
+                year: 2024
+                month: 8
+                day: 15
+                hour: 12
+              }
+              time_multiplier: 1
+              recalc_interval_seconds: 10
+              spatial_noise_data {
+                scale: 1
+                frequency: 0.0004
+                amplitude: 1.02
+                order: 17
+                seed {
+                  x: 2.81
+                  y: 4.47
+                }
+              }
+              static_data {
+                static_weather {
+                  now {
+                  }
+                  sun_position {
+                  }
+                  moon_position {
+                  }
+                  ambient_temperature_c: 23.3815117
+                }
+              }
+            }
+            dynamic_track_condition {
+              initial_grip: 0.96
+              rubber: 0.2
+              marbles: 0.12
+            }
+            crowd_density: 0.45
+          }
+        }
+        session_map {
+          key: 3
+          value {
+            name: "Race"
+            starting_sequence {
+              session_index_ref: 1
+              best {
+              }
+            }
+            scene {
+              track_content_data {
+                name: "Circuit de Spa Francorchamps"
+                folder_path: "content\\tracks\\spa"
+                file_path: "content\\tracks\\spa\\spa_francorchamps.scene"
+                nation: "BE"
+                coordinates {
+                  longitude: 5.971
+                  latitude: 50.345
+                }
+                timezone: TimeZone_Belgium
+                track_data_path: "content\\tracks\\spa\\dynamic_track\\spa.track"
+                is_release: true
+                continent: "Europe"
+              }
+              physics_type: ScenePhysicsType_Realtime
+              spawn {
+                position {
+                }
+                rotation {
+                }
+                scale {
+                  x: 1
+                  y: 1
+                  z: 1
+                }
+              }
+              containers: "content\\tracks\\spa\\containers\\camera_sequence_practice.scene"
+              containers: "content\\tracks\\spa\\containers\\layout_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\marshalls_dlp.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_race.scene"
+              containers: "content\\tracks\\spa\\containers\\pitlane_zones_gp.scene"
+              containers: "content\\tracks\\spa\\containers\\spawnpoints_grid.scene"
+              containers: "content\\tracks\\spa\\containers\\spawnpoints_pitlane.scene"
+              containers: "content\\tracks\\spa\\containers\\timelines.scene"
+              containers: "content\\tracks\\spa\\containers\\tv1_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\tv2_cameras.scene"
+              containers: "content\\tracks\\spa\\containers\\vr_cameras.scene"
+              event_name: "GP Race"
+              layout_image {
+                margin: 10
+                min_x: -1465.85
+                min_y: -2224.94
+                k_multiplier: 2224.94
+              }
+            }
+            specialization {
+              type_url: "type.googleapis.com/InstantRace.Specialization"
+              value: "\252\001@\252\006\023\020\002\030\003\"\005\010\006\020\210\'(\0010\330\255\003:\000\252\006\016\010\t\020\002\"\002\010\t(\001:\002P\001\252\006\026\010\t\020\002\030\002\"\010\010\n\020\340\324\003\030\003(\001:\002P\001\262\001\325\001\n\n\242\001\002\010\003\242\006\002\n\000\n#\362\001\017\r\000\000\000@\025\315\314\314=\035\000\000\000@\242\006\004\n\000\020\036\242\006\007\n\003\010\372\001\020d\nz\252\002Q\n\007\r\232\231\231>\020\001\n\007\r\232\231\031?\020\002\n\007\r\000\000\200?\020\003\022\007\r\232\231\231>\020\001\022\007\r\232\231\031?\020\002\022\007\r\000\000\200?\020\003\032\007\r\000\000\360A\020\001\032\007\r\000\0004B\020\002\032\007\r\000\000pB\020\003\242\006\t\n\005\010\006\020\210\'\020\001\242\006\n\n\006\010\t\020\260\352\001\020\002\242\006\n\n\006\010\t\020\310\337\002\020\003\n&\022\007pitlane\262\002\004\010<\020\001\242\006\t\n\005\010\t\020\220N\020>\242\006\007\n\003\010\372\001\020P\272\001\003EA1\302\001\003EA1\302\014, \240\3676@\260\352\001H\220NP\260\256\025p\230u\200\001\001\210\001\001\240\001\260\352\001\330\001\210\'\340\001\372\001\350\001\240\037\320\002\001"
+            }
+            weather {
+              initial_date_time {
+                year: 2024
+                month: 8
+                day: 15
+                hour: 12
+              }
+              time_multiplier: 1
+              recalc_interval_seconds: 10
+              spatial_noise_data {
+                scale: 1
+                frequency: 0.0004
+                amplitude: 1.02
+                order: 17
+                seed {
+                  x: 2.81
+                  y: 4.47
+                }
+              }
+              static_data {
+                static_weather {
+                  now {
+                  }
+                  sun_position {
+                  }
+                  moon_position {
+                  }
+                  ambient_temperature_c: 23.3815117
+                }
+              }
+            }
+            dynamic_track_condition {
+              initial_grip: 0.96
+              rubber: 0.2
+              marbles: 0.12
+            }
+            crowd_density: 1
+          }
+        }
+      }
+    }
+    event_results_map {
+      key: 0
+      value {
+        session_results_map {
+          key: 0
+          value {
+          }
+        }
+      }
+    }
+    season_cache {
+    }
+    entrylist {
+      competitors {
+        name: "None"
+      }
+    }
+    event_mutable_data {
+      key: 0
+      value {
+        cars {
+          registration_key: "76561199578634437"
+          preferred_car_number: 1
+        }
+        cars {
+          registration_key: "76561199081541796"
+          preferred_car_number: 2
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561198061150168"
+          preferred_car_number: 3
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561198172580222"
+          preferred_car_number: 4
+          pit_box_number: 10
+        }
+        cars {
+          registration_key: "76561198219997999"
+          preferred_car_number: 5
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561197999393410"
+          preferred_car_number: 6
+        }
+        cars {
+          registration_key: "76561198314862667"
+          preferred_car_number: 7
+          pit_box_number: 3
+        }
+        cars {
+          registration_key: "76561198330922688"
+          preferred_car_number: 8
+        }
+        cars {
+          registration_key: "76561198044811727"
+          preferred_car_number: 9
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561199126996214"
+          preferred_car_number: 10
+          pit_box_number: 4
+        }
+        cars {
+          registration_key: "76561199039367424"
+          preferred_car_number: 11
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561198069532793"
+          preferred_car_number: 12
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561199230511095"
+          preferred_car_number: 13
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561198361473446"
+          preferred_car_number: 14
+          pit_box_number: 4
+        }
+        cars {
+          registration_key: "76561199278725106"
+          preferred_car_number: 15
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561198941368046"
+          preferred_car_number: 16
+        }
+        cars {
+          registration_key: "76561198248953130"
+          preferred_car_number: 17
+          pit_box_number: 7
+        }
+        cars {
+          registration_key: "76561198267367655"
+          preferred_car_number: 18
+          pit_box_number: 8
+        }
+        cars {
+          registration_key: "76561198123280802"
+          preferred_car_number: 19
+          pit_box_number: 4
+        }
+        cars {
+          registration_key: "76561197970398510"
+          preferred_car_number: 20
+          pit_box_number: 10
+        }
+        cars {
+          registration_key: "76561199797614045"
+          preferred_car_number: 21
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561198119934627"
+          preferred_car_number: 22
+          pit_box_number: 6
+        }
+        cars {
+          registration_key: "76561198061457939"
+          preferred_car_number: 23
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561198075101197"
+          preferred_car_number: 24
+          pit_box_number: 14
+        }
+        cars {
+          registration_key: "76561198075945150"
+          preferred_car_number: 25
+          pit_box_number: 4
+        }
+        cars {
+          registration_key: "76561198057818714"
+          preferred_car_number: 26
+          pit_box_number: 16
+        }
+        cars {
+          registration_key: "76561198015182512"
+          preferred_car_number: 27
+          pit_box_number: 6
+        }
+        cars {
+          registration_key: "76561198120351933"
+          preferred_car_number: 28
+          pit_box_number: 7
+        }
+        cars {
+          registration_key: "76561199206328192"
+          preferred_car_number: 29
+          pit_box_number: 8
+        }
+        cars {
+          registration_key: "76561199150900155"
+          preferred_car_number: 30
+          pit_box_number: 9
+        }
+        cars {
+          registration_key: "76561197972159229"
+          preferred_car_number: 31
+          pit_box_number: 3
+        }
+        cars {
+          registration_key: "76561198108776231"
+          preferred_car_number: 32
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561197993347809"
+          preferred_car_number: 33
+          pit_box_number: 12
+        }
+        cars {
+          registration_key: "76561198160635609"
+          preferred_car_number: 34
+        }
+        cars {
+          registration_key: "76561198027730953"
+          preferred_car_number: 35
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561198387374544"
+          preferred_car_number: 36
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561197972365049"
+          preferred_car_number: 37
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561199395136953"
+          preferred_car_number: 38
+          pit_box_number: 10
+        }
+        cars {
+          registration_key: "76561198171319697"
+          preferred_car_number: 39
+          pit_box_number: 8
+        }
+        cars {
+          registration_key: "76561198217139413"
+          preferred_car_number: 40
+          pit_box_number: 9
+        }
+        cars {
+          registration_key: "76561199685689950"
+          preferred_car_number: 41
+          pit_box_number: 11
+        }
+        cars {
+          registration_key: "76561198043324678"
+          preferred_car_number: 42
+          pit_box_number: 12
+        }
+        cars {
+          registration_key: "76561198356538868"
+          preferred_car_number: 43
+          pit_box_number: 13
+        }
+        cars {
+          registration_key: "76561198001143193"
+          preferred_car_number: 44
+        }
+        cars {
+          registration_key: "76561198155578285"
+          preferred_car_number: 45
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561198269628124"
+          preferred_car_number: 46
+        }
+        cars {
+          registration_key: "76561198285333259"
+          preferred_car_number: 47
+        }
+        cars {
+          registration_key: "76561198396375189"
+          preferred_car_number: 48
+          pit_box_number: 1
+        }
+        cars {
+          registration_key: "76561198874738984"
+          preferred_car_number: 49
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561198440718094"
+          preferred_car_number: 50
+        }
+        cars {
+          registration_key: "76561199005257968"
+          preferred_car_number: 51
+          pit_box_number: 5
+        }
+        cars {
+          registration_key: "76561198330332654"
+          preferred_car_number: 52
+          pit_box_number: 7
+        }
+        cars {
+          registration_key: "76561198045522652"
+          preferred_car_number: 53
+          pit_box_number: 2
+        }
+        cars {
+          registration_key: "76561198308429211"
+          preferred_car_number: 54
+          pit_box_number: 3
+        }
+        cars {
+          registration_key: "76561199222957776"
+          preferred_car_number: 55
+          pit_box_number: 4
+        }
+        cars {
+          registration_key: "76561199263954456"
+          preferred_car_number: 56
+          pit_box_number: 6
+        }
+        cars {
+          registration_key: "76561198817544188"
+          preferred_car_number: 57
+          pit_box_number: 8
+        }
+        cars {
+          registration_key: "76561199799519792"
+          preferred_car_number: 58
+        }
+        cars {
+          registration_key: "76561198796390005"
+          preferred_car_number: 59
+        }
+      }
+    }
+    season_guid {
+      a: 3203476289930415063
+      b: 9529592404191163073
+    }
+    season_type: SeasonDefinitionType_MultiPlayer
+    no_leaderboard: true
+    gamemode_type: GameModeType_RACE_WEEKEND
+  }
+  initial_session_data {
+    gamemode_session_data {
+    }
+  }
+}
+server_version: 2
+protocol_version: 4
