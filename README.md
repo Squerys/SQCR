@@ -1,3 +1,8 @@
+
+Someone more skilled has been faster than me haha:
+https://www.youtube.com/watch?v=GsYgPDkLh2w&t=263s
+
+
 # SQCR
 
 The AC Evo client does not hardcode IP addresses for game servers. Instead, it fetches a list from a "Master Server" via a secure WebSocket connection.
